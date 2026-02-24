@@ -4,12 +4,29 @@
   "description": "The JavaScript template",
   "scripts": {
     "start": "parcel ./src/index.html",
-    "build": "parcel build ./src/index.html"
+    "build": "parcel build ./src/index.html",
+    "watch": "node watch.js"
   },
   "devDependencies": {
-    "parcel": "^2.0.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.2.0"
+    "chokidar": "^5.0.0",
+    "eslint": "^7.2.0",
+    "nodemon": "^3.1.14",
+    "parcel": "^2.0.0"
   },
-  "keywords": ["css", "javascript"]
+  "keywords": [
+    "css",
+    "javascript"
+  ],
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElTocard/Klam.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ElTocard/Klam/issues"
+  },
+  "homepage": "https://github.com/ElTocard/Klam#readme"
 }
