@@ -1,4 +1,4 @@
-window.addEventListener("load", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
   const originalItems = gsap.utils.toArray(".keyword_item");
   const images = gsap.utils.toArray(".keyword_image");
