@@ -1,5 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
-  gsap.registerPlugin(ScrollTrigger); // ← ajout
+window.addEventListener("load", () => {
 
   const originalItems = gsap.utils.toArray(".keyword_item");
   const images = gsap.utils.toArray(".keyword_image");
