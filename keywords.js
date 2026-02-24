@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger); // ← ajout
 
   const originalItems = gsap.utils.toArray(".keyword_item");
   const images = gsap.utils.toArray(".keyword_image");
   const totalItems = originalItems.length;
   const container = document.querySelector(".keywords_content");
 
-  const contentBox = container.getBoundingClientRect().height;
-  const spacing = contentBox * 0.15;
+  const spacing = window.innerHeight * 0.12; // ← fix
   const curve = 10;
   const rotateAmount = 6;
 
