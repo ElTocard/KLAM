@@ -90,12 +90,6 @@ window.addEventListener("load", () => {
 // DATA SPEED
 window.addEventListener("load", () => {
   gsap.utils.toArray("[data-speed]").forEach((el) => {
-    new SplitText(el, {
-      type: "lines, words",
-      linesClass: "line",
-      wordsClass: "word",
-    });
-
     const speed = parseFloat(el.dataset.speed) || 1;
 
     gsap.to(el, {
