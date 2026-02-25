@@ -74,7 +74,7 @@ window.addEventListener("load", () => {
 
     gsap.from(split.words, {
       yPercent: 110,
-      autoAlpha: 0,
+      opacity: 0,
       duration: 0.8,
       delay,
       stagger: 0.06,
