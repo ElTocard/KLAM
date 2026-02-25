@@ -61,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // DATA REVEAL
+document.head.insertAdjacentHTML("beforeend", "<style>[data-reveal]{visibility:hidden}</style>");
 window.addEventListener("load", () => {
   gsap.utils.toArray("[data-reveal]").forEach((el) => {
     const delay = parseFloat(el.dataset.revealDelay) || 0;
