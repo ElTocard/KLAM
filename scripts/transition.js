@@ -1,65 +1,31 @@
-// PAGE TRANSITION — overlay visible immédiatement via CSS
-document.head.insertAdjacentHTML(
-  "beforeend",
-  `<style>
-    .page-transition {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #F9F8EE;
-      z-index: 9999;
-      pointer-events: none;
-    }
-  </style>`
-);
+// PAGE TRANSITION
+document.addEventListener("DOMContentLoaded", () => {
+  const overlay = document.querySelector(".transition-overlay");
+  if (!overlay) return;
 
-// Créer l'overlay sur <html> (disponible immédiatement, pas besoin d'attendre body)
-const overlay = document.createElement("div");
-overlay.classList.add("page-transition");
-document.documentElement.appendChild(overlay);
+  // Fade out on link click
+  document.querySelectorAll('a[href^="/"]:not([href*="#"]):not([target="_blank"])').forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const href = link.getAttribute("href");
 
-window.addEventListener("load", () => {
-  // Fade out overlay une fois la page complètement chargée
-  gsap.to(overlay, {
-    opacity: 0,
-    duration: 0.5,
-    ease: "power2.out",
-    onComplete: () => (overlay.style.visibility = "hidden"),
-  });
-
-  // Fade in overlay au clic sur un lien interne
-  document.addEventListener("click", (e) => {
-    const link = e.target.closest("a");
-    if (
-      !link ||
-      link.hostname !== window.location.hostname ||
-      link.getAttribute("href").startsWith("#") ||
-      link.target === "_blank"
-    )
-      return;
-
-    e.preventDefault();
-    const href = link.href;
-
-    overlay.style.visibility = "visible";
-    gsap.to(overlay, {
-      opacity: 1,
-      duration: 0.5,
-      ease: "power2.in",
-      onComplete: () => (window.location = href),
+      gsap.to(overlay, {
+        opacity: 1,
+        duration: 0.5,
+        ease: "power2.inOut",
+        onComplete: () => (window.location.href = href),
+      });
     });
   });
 
-  // Back/forward
-  window.addEventListener("pageshow", (e) => {
-    if (e.persisted) {
+  // Fade in on page load
+  window.addEventListener("load", () => {
+    if (getComputedStyle(overlay).opacity !== "0") {
       gsap.to(overlay, {
         opacity: 0,
         duration: 0.5,
-        ease: "power2.out",
-        onComplete: () => (overlay.style.visibility = "hidden"),
+        delay: 0.2,
+        ease: "power2.inOut",
       });
     }
   });
