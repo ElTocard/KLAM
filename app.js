@@ -1,6 +1,6 @@
-import "./general.js";
-import "./keywords.js";
-import "./marquee.js";
-import "./navbar.js";
-import "./splide-cursor.js";
-import "./splide.js";
+import "./scripts/general.js";
+import "./scripts/keywords.js";
+import "./scripts/marquee.js";
+import "./scripts/navbar.js";
+import "./scripts/splide-cursor.js";
+import "./scripts/splide.js";
