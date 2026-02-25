@@ -1,3 +1,4 @@
+import "./scripts/transition.js";
 import "./scripts/general.js";
 import "./scripts/keywords.js";
 import "./scripts/marquee.js";
