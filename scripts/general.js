@@ -72,9 +72,10 @@ window.addEventListener("load", () => {
       word.parentElement.style.overflowClipMargin = "0.15em";
     });
 
+    el.style.visibility = "visible";
     gsap.from(split.words, {
       yPercent: 110,
-      opacity: 0,
+      autoAlpha: 0,
       duration: 0.8,
       delay,
       stagger: 0.06,
