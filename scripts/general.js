@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
 window.addEventListener("load", () => {
   gsap.utils.toArray("[data-reveal]").forEach((el) => {
     const delay = parseFloat(el.dataset.revealDelay) || 0;
-    const split = new SplitText(el, { type: "words", mask: "words" });
+    const split = new SplitText(el, { type: "lines, words", mask: "words", linesClass: "line", wordsClass: "word" });
 
     split.words.forEach((word) => {
       word.parentElement.style.overflow = "clip";
