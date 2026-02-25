@@ -61,7 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // DATA REVEAL
-gsap.set("[data-reveal]", { visibility: "hidden" });
 window.addEventListener("load", () => {
   gsap.utils.toArray("[data-reveal]").forEach((el) => {
     const delay = parseFloat(el.dataset.revealDelay) || 0;
@@ -74,7 +73,7 @@ window.addEventListener("load", () => {
 
     gsap.from(split.words, {
       yPercent: 110,
-      autoAlpha: 0,
+      opacity: 0,
       duration: 0.8,
       delay,
       stagger: 0.06,
